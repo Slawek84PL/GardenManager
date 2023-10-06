@@ -1,4 +1,4 @@
-package pl.slawek.Garden.Menager;
+package pl.slawek.GardenMenager;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
