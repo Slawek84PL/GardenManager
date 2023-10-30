@@ -1,9 +1,14 @@
 package pl.slawek.GardenMenager.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 
 import java.time.Instant;
-
+@Getter
+@Setter
+@RequiredArgsConstructor
 @MappedSuperclass
 public class BaseEntity {
 
@@ -16,6 +21,9 @@ public class BaseEntity {
 
     @Column(name = "updated_at")
     private Instant updatedAt;
+
+    @Column(name = "name", length = 50)
+    private String name;
 
     @PrePersist
     public void prePersist() {
