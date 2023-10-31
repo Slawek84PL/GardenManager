@@ -1,7 +1,7 @@
-package pl.slawek.GardenMenager.domain.plant;
+package pl.slawek.GardenManager.domain.plant;
 
 import jakarta.persistence.*;
-import pl.slawek.GardenMenager.domain.BaseEntity;
+import pl.slawek.GardenManager.domain.BaseEntity;
 
 import java.time.Instant;
 

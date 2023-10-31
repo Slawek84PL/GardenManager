@@ -1,4 +1,4 @@
-package pl.slawek.GardenMenager.domain;
+package pl.slawek.GardenManager.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

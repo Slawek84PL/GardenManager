@@ -1,9 +1,9 @@
-package pl.slawek.GardenMenager.domain.user;
+package pl.slawek.GardenManager.domain.user;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.RequiredArgsConstructor;
-import pl.slawek.GardenMenager.domain.BaseEntity;
+import pl.slawek.GardenManager.domain.BaseEntity;
 
 @RequiredArgsConstructor
 @Entity

@@ -1,8 +1,8 @@
-package pl.slawek.GardenMenager.domain.spot;
+package pl.slawek.GardenManager.domain.spot;
 
 import jakarta.persistence.*;
-import pl.slawek.GardenMenager.domain.BaseEntity;
-import pl.slawek.GardenMenager.domain.plant.PlantingPlant;
+import pl.slawek.GardenManager.domain.BaseEntity;
+import pl.slawek.GardenManager.domain.plant.PlantingPlant;
 
 import java.util.List;
 

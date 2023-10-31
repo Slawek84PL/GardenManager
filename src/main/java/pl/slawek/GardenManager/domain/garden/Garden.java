@@ -1,12 +1,12 @@
-package pl.slawek.GardenMenager.domain.garden;
+package pl.slawek.GardenManager.domain.garden;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
-import pl.slawek.GardenMenager.domain.BaseEntity;
-import pl.slawek.GardenMenager.domain.spot.ActualGardenSpot;
-import pl.slawek.GardenMenager.domain.user.AppUser;
+import pl.slawek.GardenManager.domain.BaseEntity;
+import pl.slawek.GardenManager.domain.spot.ActualGardenSpot;
+import pl.slawek.GardenManager.domain.user.AppUser;
 
 import java.util.List;
 

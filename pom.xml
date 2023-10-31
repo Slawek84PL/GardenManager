@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>pl.slawek</groupId>
-	<artifactId>Garden-Menager</artifactId>
+	<artifactId>Garden-Manager</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Garden-Manager</name>
 	<description>Demo project for Spring Boot</description>
