@@ -1,10 +1,10 @@
-package pl.slawek.GardenMenager;
+package pl.slawek.GardenManager;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class GardenMenagerApplicationTests {
+class GardenManagerApplicationTests {
 
 	@Test
 	void contextLoads() {
