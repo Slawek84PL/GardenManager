@@ -1,32 +1,44 @@
 package pl.slawek.GardenManager.domain.plant;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
-@RequiredArgsConstructor
 @Service
 public class PlantService {
 
     private final PlantRepository repository;
 
-    private Plant create(String name) {
-        Plant plant = new Plant();
-        plant.setName(name);
+    public PlantService(PlantRepository repository) {
+        this.repository = repository;
+    }
+
+    @Transactional
+    public Plant create(Plant plant) {
         return repository.save(plant);
     }
 
-    private List<Plant> plants() {
+    @Transactional(readOnly = true)
+    public Plant plant(Long id) {
+        return repository.getReferenceById(id);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Plant> plants() {
         return repository.findAll();
     }
 
-    private Optional<Plant> plant(Long id) {
-        return Optional.of(repository.findById(id).orElseThrow());
+    @Transactional
+    public Plant update(Long id, Plant plantRequest) {
+        Plant plant = repository.getReferenceById(id);
+        plant.setName(plantRequest.getName());
+
+        return plant;
     }
 
-    private void delete(Plant plant) {
+    @Transactional
+    public void delete(Plant plant) {
         repository.delete(plant);
     }
 
