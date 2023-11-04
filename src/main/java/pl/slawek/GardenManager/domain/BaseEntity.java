@@ -17,7 +17,7 @@ public class BaseEntity {
     private Long id;
 
     @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt = Instant.now();
+    private Instant createdAt;
 
     @Column(name = "updated_at")
     private Instant updatedAt;
@@ -26,12 +26,12 @@ public class BaseEntity {
     private String name;
 
     @PrePersist
-    public void prePersist() {
+    protected void prePersist() {
         createdAt = Instant.now();
     }
 
     @PreUpdate
-    public void preUpdate() {
+    protected void preUpdate() {
         updatedAt = Instant.now();
     }
 }
