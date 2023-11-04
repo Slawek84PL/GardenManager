@@ -2,7 +2,7 @@ package pl.slawek.GardenManager.domain.garden;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import pl.slawek.GardenManager.domain.BaseEntity;
 import pl.slawek.GardenManager.domain.spot.ActualGardenSpot;
@@ -14,11 +14,11 @@ import java.util.List;
 @Table(name = "gardens")
 public class Garden extends BaseEntity {
 
-    @ManyToMany
+    @OneToMany
     @JoinColumn(name = "user_id")
     private List<AppUser> users;
 
-    @ManyToMany
+    @OneToMany
     @JoinColumn(name = "actual_garden_spot_id")
     private List<ActualGardenSpot> gardenSpots;
 }
