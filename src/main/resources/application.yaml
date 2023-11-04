@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/plantmanagerdb
+    url: jdbc:postgresql://raspberrypi.local:5432/plantmanagerdb
     username: postgres
     password: password
 
