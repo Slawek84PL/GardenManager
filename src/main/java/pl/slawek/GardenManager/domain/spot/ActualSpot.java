@@ -9,6 +9,8 @@ import java.util.List;
 @Entity
 @Table(name = "actual_garden_spots")
 public class ActualGardenSpot extends BaseEntity {
+@Table(name = "actual_spots")
+public class ActualSpot extends BaseEntity {
 
     @ManyToOne
     @JoinColumn(name = "garden_spot_id")

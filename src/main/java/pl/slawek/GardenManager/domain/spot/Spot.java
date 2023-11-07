@@ -6,7 +6,7 @@ import pl.slawek.GardenManager.domain.BaseEntity;
 
 @RequiredArgsConstructor
 @Entity
-@Table(name = "garden_spot")
-public class GardenSpot extends BaseEntity {
+@Table(name = "spots")
+public class Spot extends BaseEntity {
 
 }
