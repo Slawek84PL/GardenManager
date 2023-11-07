@@ -1,19 +1,18 @@
 package pl.slawek.GardenManager.domain.plant;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.Table;
 import pl.slawek.GardenManager.domain.BaseEntity;
-
-import java.time.Instant;
+import pl.slawek.GardenManager.domain.spot.ActualSpot;
 
 @Entity
 @Table(name = "planting_plants")
 public class PlantingPlant extends BaseEntity {
 
-    @ManyToOne
-    @JoinColumn(name = "plant_id")
+    @OneToOne
     private Plant plant;
 
-    @Column(name = "planting_date", nullable = false)
-    private Instant plantingDate;
-
+    @OneToOne
+    private ActualSpot actualSpot;
 }
