@@ -5,7 +5,7 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import pl.slawek.GardenManager.domain.BaseEntity;
 import pl.slawek.GardenManager.domain.plant.Plant;
-import pl.slawek.GardenManager.domain.spot.ActualSpot;
+import pl.slawek.GardenManager.domain.actualSpot.ActualSpot;
 
 @Entity
 @Table(name = "planting_plants")
