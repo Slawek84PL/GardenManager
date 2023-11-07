@@ -1,9 +1,10 @@
-package pl.slawek.GardenManager.domain.plant;
+package pl.slawek.GardenManager.domain.plantingPlant;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import pl.slawek.GardenManager.domain.BaseEntity;
+import pl.slawek.GardenManager.domain.plant.Plant;
 import pl.slawek.GardenManager.domain.spot.ActualSpot;
 
 @Entity
