@@ -1,7 +1,9 @@
-package pl.slawek.GardenManager.domain.plant;
+package pl.slawek.GardenManager.domain.plant.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pl.slawek.GardenManager.domain.plant.Plant;
+import pl.slawek.GardenManager.domain.plant.repository.PlantRepository;
 
 import java.util.List;
 
