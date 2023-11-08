@@ -39,7 +39,12 @@ class SpotServiceTest {
 
     @Test
     void shouldSaveSpotInDatabase() {
-        assertNotNull(repository.getReferenceById(spot1.getId()));
+        Spot spot = new Spot();
+        spot.setName("Name");
+
+        service.create(spot);
+
+        assertNotNull(repository.getReferenceById(spot.getId()));
     }
 
     @Test
