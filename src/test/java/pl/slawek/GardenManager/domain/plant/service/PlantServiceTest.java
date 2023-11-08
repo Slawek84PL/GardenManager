@@ -1,11 +1,12 @@
-package pl.slawek.GardenManager.domain.plant;
+package pl.slawek.GardenManager.domain.plant.service;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
+import pl.slawek.GardenManager.domain.plant.Plant;
 import pl.slawek.GardenManager.domain.plant.repository.PlantRepository;
-import pl.slawek.GardenManager.domain.plant.service.PlantService;
 
 import java.util.Arrays;
 
