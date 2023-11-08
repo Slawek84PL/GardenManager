@@ -24,56 +24,59 @@ class PlantServiceTest {
     @Autowired
     private PlantService service;
 
-    private Plant plant = new Plant();
+    private Plant plant1 = new Plant();
+    private Plant plant2 = new Plant();
 
     @BeforeEach
     void build() {
-        plant.setName("Plant");
+        repository.deleteAll();
+
+        plant1.setName("Storczyk");
+        plant2.setName("Lilia");
+
+        repository.saveAll(Arrays.asList(plant1, plant2));
     }
 
     @Test
     void shouldSavePlantInDatabase() {
+        Plant plant = new Plant();
+        plant.setName("Name");
+
         service.create(plant);
+
         assertNotNull(repository.getReferenceById(plant.getId()));
     }
 
     @Test
     void shouldReturnPlantsList() {
-        Plant plant2 = new Plant();
-        plant.setName("Plant 1");
-
-        repository.saveAll(Arrays.asList(plant,plant2));
-
         assertThat(service.plants()).hasSize(2);
     }
 
     @Test
     void shouldReturnPlant() {
-        Long plantId = repository.save(plant).getId();
-
-        assertNotNull(service.plant(plantId));
+        assertNotNull(service.plant(plant1.getId()));
     }
 
     @Test
     void shouldUpdatePlant() {
-        Long plantId = repository.save(plant).getId();
 
-        Plant updatePlant = new Plant();
-        updatePlant.setName("Plant 1");
+        Plant plant = new Plant();
+        plant.setName("Plant 1");
 
-        Plant updatedPlant = service.update(plant.getId(), updatePlant);
+        Plant updatedPlant = service.update(plant1.getId(), plant);
 
         assertNotNull(updatedPlant);
-        assertEquals(plantId, updatedPlant.getId());
+        assertEquals(plant1.getId(), updatedPlant.getId());
+        assertThat(updatedPlant.getName()).isEqualTo(plant.getName());
     }
 
     @Test
     void shouldDeletePlant() {
-        Long plantId = repository.save(plant).getId();
 
-        service.delete(plant);
+        service.delete(plant1);
 
-        assertThat(repository.findById(plantId)).isEmpty();
+        assertThat(repository.findById(plant1.getId())).isEmpty();
+        assertThat(repository.findAll()).hasSize(1);
 
     }
 
