@@ -24,57 +24,54 @@ class SpotServiceTest {
     @Autowired
     private SpotService service;
 
-    private Spot spot = new Spot();
+    private Spot spot1 = new Spot();
+    private Spot spot2 = new Spot();
 
     @BeforeEach
     void build() {
-        spot.setName("Spot");
+        repository.deleteAll();
+
+        spot1.setName("Donica");
+        spot2.setName("Skrzynia");
+
+        repository.saveAll(Arrays.asList(spot1, spot2));
     }
 
     @Test
     void shouldSaveSpotInDatabase() {
-        service.create(spot);
-        assertNotNull(repository.getReferenceById(spot.getId()));
+        assertNotNull(repository.getReferenceById(spot1.getId()));
     }
 
     @Test
     void shouldReturnSpotsList() {
-        Spot spot1 = new Spot();
-        spot.setName("Spot2");
-
-        repository.saveAll(Arrays.asList(spot, spot1));
-
         assertThat(service.spots()).hasSize(2);
     }
 
     @Test
     void shouldReturnSpot() {
-        Long plantId = repository.save(spot).getId();
-
-        assertNotNull(service.spot(plantId));
+        assertNotNull(service.spot(spot1.getId()));
     }
 
     @Test
     void shouldUpdateSpot() {
-        Long spotId = repository.save(spot).getId();
 
-        Spot updateSpot = new Spot();
-        updateSpot.setName("Spot 1");
+        Spot spot = new Spot();
+        spot.setName("Spot 1");
 
-        Spot updatedSpot = service.update(spot.getId(), updateSpot);
+        Spot updatedSpot = service.update(spot1.getId(), spot);
 
         assertNotNull(updatedSpot);
-        assertEquals(spotId, updatedSpot.getId());
+        assertEquals(spot1.getId(), updatedSpot.getId());
+        assertThat(updatedSpot.getName()).isEqualTo(spot.getName());
     }
 
     @Test
     void shouldDeleteSpot() {
-        Long spotId = repository.save(spot).getId();
 
-        service.delete(spot);
+        service.delete(spot1);
 
-        assertThat(repository.findById(spotId)).isEmpty();
-
+        assertThat(repository.findById(spot1.getId())).isEmpty();
+        assertThat(repository.findAll()).hasSize(1);
     }
 
 }
